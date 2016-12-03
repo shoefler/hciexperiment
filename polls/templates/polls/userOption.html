@@ -1,0 +1,31 @@
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+<div class="container">
+
+  <!-- Main component for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <h2>Pick an Option</h2>
+    <p>
+      <br/><br/>
+      This website gives you two options.  Would you like a faster loading website or a website that consumes less energy to run the servers.
+    </p>
+
+    <form action="{% url 'polls:saveOption' %}" method="post">
+		{% csrf_token %}
+		<p align="center">
+			<input type="submit" value="Save Some Energy" name="option" id="option" class="btn btn-lg btn-primary"/>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="submit" value="Fast Please" name="option" id="option" class="btn btn-lg btn-primary"/>
+		</p>
+	</form>
+  </div>
+
+</div>
